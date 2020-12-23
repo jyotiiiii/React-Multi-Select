@@ -23,7 +23,6 @@ function App() {
         selectedItems={selectedItems}
         onChange={handleChange}
       />
-      );
     </>
   );
 }
