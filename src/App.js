@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import React, { useState } from "react";
+import MultiSelect from "@kenshooui/react-multi-select";
 
 function App() {
+  const [items, setItems] = useState([
+    { id: 0, label: "item 1" },
+    { id: 2, label: "item 2", disabled: true },
+    { id: 3, label: "item 3", disabled: false },
+    { id: 4, label: "item 4" },
+  ]);
+
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const handleChange = (selectedItems) => setSelectedItems(selectedItems);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MultiSelect
+        items={items}
+        selectedItems={selectedItems}
+        onChange={handleChange}
+      />
+      );
+    </>
   );
 }
 
